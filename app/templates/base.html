@@ -1,0 +1,30 @@
+<html>
+	<head>
+		{% if title_page %}
+		<title>{{ title_page }} - Advanced Python </title>
+		{% else %}
+		<title>Welcome to Advanced Python </title>
+		{% endif %}
+	</head>
+	<body>
+		<div> KXC : 
+			<a href = "{{ url_for('index') }}">Home </a>
+			{% if current_user.is_anonymous %}
+			<a href = "{{ url_for('login') }}" >Sign In </a>
+			{% else %}
+			<a href = "{{ url_for('logout') }}" >Logout</a>
+			{% endif %}
+		</div>
+		<hr>
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+		<ul>
+			{% for i in messages %}
+			<li> {{ i }} </li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+		{% endwith %}
+		{%block content %} {% endblock %}
+	</body>
+</html>

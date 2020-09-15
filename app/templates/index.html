@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+		<h1> Welcome to KXC </h1>
+
+		<h3> Hi, {{ current_user.username }} </h3> 
+
+		Courses offered : 
+		{% for i in courses %}
+		<div><p> {{ i }} </b></p></div>
+		{% endfor %}
+		<h3> If you are intrested Please <a href="/login">Sign In </a> 
+{% endblock %}
